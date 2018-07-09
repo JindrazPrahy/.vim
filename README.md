@@ -1,19 +1,40 @@
-# vim-latex aka latex-suite
+# A .vim setup (by Jindřich Dušek)
 
-This vim plugin provides a rich tool of features for editing latex files.
-For further descriptions, we refer to
-the [website](http://vim-latex.sourceforge.net/).
-There is also a [user manual](http://vim-latex.sourceforge.net/index.php?subject=manual&title=Manual#user-manual)
-and a [beginner's tutorial](http://vim-latex.sourceforge.net/index.php?subject=manual&title=Tutorial#tutorial).
+This is a .vim directory configured for using vim with LaTeX, Python, C, and Metapost. More features are being added periodically.
 
+Should you feel there is a room for improvement in my .vim do not hesitate to contact me (jd@mamlasinky.com) and hopefully your issue will be addressed.
 
 ## Installation
-We recommend the installation via a plugin manager such as [pathogen](https://github.com/tpope/vim-pathogen) or [Vundle](https://github.com/gmarik/vundle).
 
-Instructions for manual installation is documented at the [website](http://vim-latex.sourceforge.net/index.php?subject=download).
+The installation is fairly straightforward. You just need to have 
 
-Recommended settings after installation can be found in [Section 1](http://vim-latex.sourceforge.net/documentation/latex-suite.html#recommended-settings) of the manual.
+- git 
+- and vim.
 
-## Documentation
-As already mentioned, the manual can be found [here](http://vim-latex.sourceforge.net/index.php?subject=manual&title=Manual#user-manual).
-After installation, you will also have a rich in-vim documentation, see `:help latex-suite`.
+Then type the following the into your bash command line:
+
+```
+cd ~
+git clone https://github.com/JindrazPrahy/.vim.git
+cp ~/.vim/.vimrc.backup ~/.vimrc
+```
+
+
+# Documentation 
+
+## LaTeX
+Tba
+
+## Python 
+
+Tba
+
+## C
+
+Tba
+
+## Metapost
+
+Tba
+
+
