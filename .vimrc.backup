@@ -1,0 +1,6 @@
+"Filetype detection
+:filetype plugin indent on
+:syntax on
+
+"A fix for .tex files
+:let g:tex_flavor = "latex"
