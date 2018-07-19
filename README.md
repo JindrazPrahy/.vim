@@ -4,6 +4,13 @@ This is a .vim directory configured for using vim with LaTeX, Python, C, and Met
 
 Should you feel there is a room for improvement in my .vim do not hesitate to contact me (jd@mamlasinky.com) and hopefully your issue will be addressed.
 
+I use the following vim plugins:
+
+- pathogen (for plugin installation),
+- LaTeX suite,
+- FastFold,
+- and SimpylFold.
+
 ## Installation
 
 The installation is fairly straightforward. You just need to have 
