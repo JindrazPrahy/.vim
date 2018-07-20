@@ -1,10 +1,10 @@
-"Taby
+"Tabs
 :set noexpandtab
 :set shiftwidth=4
 :set tabstop=4
 :set softtabstop=4
 
-"Kompilace
+"Compilation
 :nnoremap <F2> :!python3 % <cr>
 
 " Enable folding
