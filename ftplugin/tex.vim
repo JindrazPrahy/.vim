@@ -33,18 +33,198 @@ syntax on
 :nnoremap \kl :!pdflatex -interaction=nonstopmode % 
 
 "Newfile makra
-" memoir newfile fks article zapis
-:inoremap \newfile \documentclass[10pt,a4paper]{article}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[czech]{babel}<CR>\usepackage[T1]{fontenc}<CR>\usepackage{amsmath}<CR>\usepackage{amsfonts}<CR>\usepackage{amssymb}<CR>\usepackage{graphicx}<CR>\usepackage{lmodern}<CR>\begin{document}<CR><CR>\end{document}<esc>ki
-:inoremap \fks \documentclass{fkssolpub}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[T1]{fontenc}<CR>\usepackage{lmodern}<CR>\usepackage[czech]{babel}<CR>\usepackage{graphicx}<CR>\usepackage{fkssugar}<CR>\author{Jindřich Dušek}<CR>\school{Gymnázium Jana Keplera}<CR>\series{}<CR>\begin{document}<CR>\begin{problem}{<++>}<CR><++><CR>\end{problem}<CR>\end{document}<esc>5ki
+"newfile fks article zapis
+:inoremap \newfile 
+\\documentclass[10pt,a4paper]{article}<CR>
+\\usepackage[utf8]{inputenc}<CR>
+\\usepackage[czech]{babel}<CR>
+\\usepackage[T1]{fontenc}<CR>
+\\usepackage{amsmath}<CR>
+\\usepackage{amsfonts}<CR>
+\\usepackage{amssymb}<CR>
+\\usepackage{graphicx}<CR>
+\\usepackage{lmodern}<CR>
+\\begin{document}<CR><CR>
+\\end{document}<esc>ki
+
+:inoremap \fks 
+\\documentclass{fkssolpub}<CR>
+\\usepackage[utf8]{inputenc}<CR>
+\\usepackage[T1]{fontenc}<CR>
+\\usepackage{lmodern}<CR>
+\\usepackage[czech]{babel}<CR>
+\\usepackage{graphicx}<CR>
+\\usepackage{fkssugar}<CR>
+\\author{Jindřich Dušek}<CR>
+\\school{Gymnázium Jana Keplera}<CR>
+\\series{}<CR>
+\\begin{document}<CR>
+\\begin{problem}{<++>}<CR><++><CR>
+\\end{problem}<CR>
+\end{document}<esc>5ki
 
 
-:inoremap \memoir \documentclass[openright]{memoir}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[T1]{fontenc}<CR>\usepackage{lmodern}<CR>\usepackage[czech]{babel}<CR>\usepackage{graphicx}<CR>%\usepackage{fkssugar}<CR>\usepackage{lipsum}<CR>\usepackage{geometry}<CR>%\usepackage{fancyhdr}<CR>%\usepackage{dtk-logos}<CR>\usepackage{amsthm}<CR><CR>%-----------Sekce---------------------------<CR>\geometry{a4paper}<CR>\chapterstyle{bianchi}%ALT BIANCHI,VEELO<CR><CR>%-----------Obal knihy---------------------<CR>\usepackage[T1]{fontenc}<CR><CR>\newlength{\drop}<CR><CR>%------------------------------------------<CR>%------------Dělení knihy-------------------------<CR>\addto\captionsczech{\renewcommand*\contentsname{Obsah}}<CR><CR>%---TOC<CR>\addto\captionsczech{\renewcommand*\chaptername{Téma}}  %---Kapitola<CR>\newtheorem*{shrn}{Shrnutí}%----Shrnutí<CR>\newtheorem*{dlzt}{Zapamatujte si}%---Důležité fakty<CR>\newtheorem{esnc}{Věc do testu}%---Potřebnévěcidodlouhedoby<CR><CR>%-------------------------------------------<CR>\clubpenalty=10000<CR>\widowpenalty=10000<CR>\raggedbottom<CR>\author{Jindřich Dušek}<CR>\pagenumbering{arabic}<CR><CR>\begin{document}<CR>\pagestyle{ruled}<CR>%------------Přebal zvenku-------------------------------<CR>%MISSING<CR>%------------Nadpis--------------------------------------<CR>\mainmatter<CR>\thispagestyle{empty}<CR>\newpage<CR>{<CR>\drop=0.1\textheight<CR>\centering<CR><CR>\vspace*{\baselineskip}<CR>\scshape<CR>JINDŘICH ŠIMON DUŠEK<CR>\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}<CR>\rule{\textwidth}{0.4pt}\\[\baselineskip]<CR>{\LARGE <++>[0.3\baselineskip]<++>}\\[0.2\baselineskip]<CR>\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}<CR>\rule{\textwidth}{1.6pt}\\[\baselineskip]<CR>\scshape<CR><++>\par<CR>\vspace*{2\baselineskip}<CR>Upravoval: \\[\baselineskip]<CR>{\Large JINDŘICH ŠIMON DUŠEK  \par}<CR>%{\itshape Organisation \\ Address\par}<CR>\vfill<CR>\begin{center}<CR>{\scshape Nakladatelství JINDRA 2017}%{\large JINDŘICH ŠIMON DUŠEK}<CR>\end{center}<CR>}<CR>%-----------------Prázdný přebal zevnitř-------------------------<CR>\newpage<CR>\thispagestyle{empty}<CR>\phantom{<3}<CR>%-----------------Obsah-----------------------------------------<CR>\newpage<CR>\tableofcontents<CR>%-----------------Prázdná strana---------------------------------<CR>\newpage<CR>\thispagestyle{empty}<CR>\phantom{<3}<CR>%-----------------Předmluva--------------------------------------<CR>\newpage<CR>%\pagestyle{headings}<CR>\addcontentsline{toc}{chapter}{Předmluva}\markboth{Předmluva}{}<CR>\chapter*{<++>}<CR><CR>\end{document}<esc>ggi
+:inoremap \memoir 
+\\documentclass[openright]{memoir}<CR>
+\\usepackage[utf8]{inputenc}<CR>
+\\usepackage[T1]{fontenc}<CR>
+\\usepackage{lmodern}<CR>
+\\usepackage[czech]{babel}<CR>
+\\usepackage{graphicx}<CR>%
+\\usepackage{fkssugar}<CR>
+\\usepackage{lipsum}<CR>
+\\usepackage{geometry}<CR>%
+\\usepackage{fancyhdr}<CR>%
+\\usepackage{dtk-logos}<CR>
+\\usepackage{amsthm}<CR><CR>%-----------Sekce---------------------------<CR>
+\\geometry{a4paper}<CR>
+\\chapterstyle{bianchi}%ALT BIANCHI,VEELO
+\<CR>
+\<CR>
+\%-----------Obal knihy---------------------<CR>
+\\usepackage[T1]{fontenc}<CR>
+\<CR>
+\\newlength{\drop}<CR>
+\<CR>
+\%------------------------------------------<CR>
+\%------------Dělení knihy-------------------------<CR>
+\\addto\captionsczech{\renewcommand*\contentsname{Obsah}}<CR>
+\<CR>
+\%---TOC<CR>
+\\addto\captionsczech{\renewcommand*\chaptername{Téma}}  %---Kapitola<CR>
+\\newtheorem*{shrn}{Shrnutí}%----Shrnutí<CR>
+\\newtheorem*{dlzt}{Zapamatujte si}%---Důležité fakty<CR>
+\\newtheorem{esnc}{Věc do testu}%---Potřebnévěcidodlouhedoby<CR>
+\<CR>
+\%-------------------------------------------<CR>
+\\clubpenalty=10000<CR>
+\\widowpenalty=10000<CR>
+\\raggedbottom<CR>
+\\author{Jindřich Dušek}<CR>
+\\pagenumbering{arabic}<CR>
+\<CR>
+\\begin{document}<CR>
+\\pagestyle{ruled}<CR>
+\%------------Přebal zvenku-------------------------------<CR>
+\%MISSING<CR>
+\%------------Nadpis--------------------------------------<CR>
+\\mainmatter<CR>
+\\thispagestyle{empty}<CR>
+\newpage<CR>
+\{<CR>
+\\drop=0.1\textheight<CR>
+\\centering<CR>
+\<CR>
+\\vspace*{\baselineskip}<CR>
+\\scshape<CR>
+\JINDŘICH ŠIMON DUŠEK<CR>
+\\rule{\textwidth}{1.6pt}\vspace*{-\baselineskip}\vspace*{2pt}<CR>
+\\rule{\textwidth}{0.4pt}\\[\baselineskip]<CR>
+\{\LARGE <++>[0.3\baselineskip]<++>}\\[0.2\baselineskip]<CR>
+\\rule{\textwidth}{0.4pt}\vspace*{-\baselineskip}\vspace{3.2pt}<CR>
+\\rule{\textwidth}{1.6pt}\\[\baselineskip]<CR>
+\\scshape<CR>
+\<++>\par<CR>
+\\vspace*{2\baselineskip}<CR>
+\Upravoval: \\[\baselineskip]<CR>{\Large JINDŘICH ŠIMON DUŠEK  \par}<CR>
+\%{\itshape Organisation \\ Address\par}<CR>
+\\vfill<CR>
+\\begin{center}<CR>
+\{\scshape Nakladatelství JINDRA 2017}%{\large JINDŘICH ŠIMON DUŠEK}<CR>
+\\end{center}<CR>}<CR>
+\%-----------------Prázdný přebal zevnitř-------------------------<CR>
+\\newpage<CR>
+\\thispagestyle{empty}<CR>
+\\phantom{<3}<CR>
+\%-----------------Obsah-----------------------------------------<CR>
+\\newpage<CR>
+\\tableofcontents<CR>
+\%-----------------Prázdná strana---------------------------------<CR>
+\\newpage<CR>
+\\thispagestyle{empty}<CR>
+\\phantom{<3}<CR>%-----------------Předmluva--------------------------------------<CR>
+\\newpage<CR>
+\%\pagestyle{headings}<CR>
+\\addcontentsline{toc}{chapter}{Předmluva}\markboth{Předmluva}{}<CR>
+\\chapter*{<++>}<CR>
+\<CR>
+\\end{document}<esc>ggi
 
 
-:inoremap \article \documentclass[10pt,a4paper]{article}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[czech]{babel}<CR>\usepackage[T1]{fontenc}<CR>\usepackage{amsmath}<CR>\usepackage{amsfonts}<CR>\usepackage{amssymb}<CR>\usepackage{graphicx}<CR>\usepackage{lmodern}<CR>\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}<CR>\usepackage[sc]{mathpazo}<CR>\linespread{1.05}<CR>\usepackage{microtype}<CR>\usepackage{lettrine}<CR>\usepackage{titlesec}<CR>\usepackage{titling}<CR>\setlength{\droptitle}{-4\baselineskip}<CR>\pretitle{\begin{center}\huge\bfseries}<CR>\posttitle{\end{center}}<CR>\renewcommand\thesection{\Roman{section}}<CR>\renewcommand\thesubsection{\arabic{subsection}}<CR>\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}<CR>\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}<CR>\author{\textsc{Jindřich Dušek}\\ GJK}<CR>\title{<++>}<CR>\date{\today}<CR>\begin{document}\maketitle\thispagestyle{empty}<CR><CR>\end{document}
+
+:inoremap \article 
+\\documentclass[10pt,a4paper]{article}<CR>
+\\usepackage[utf8]{inputenc}<CR>
+\\usepackage[czech]{babel}<CR>
+\\usepackage[T1]{fontenc}<CR>
+\\usepackage{amsmath}<CR>
+\\usepackage{amsfonts}<CR>
+\\usepackage{amssymb}<CR>
+\\usepackage{graphicx}<CR>
+\\usepackage{lmodern}<CR>
+\\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}<CR>
+\\usepackage[sc]{mathpazo}<CR>
+\\linespread{1.05}<CR>
+\\usepackage{microtype}<CR>
+\\usepackage{lettrine}<CR>
+\\usepackage{titlesec}<CR>
+\\usepackage{titling}<CR>
+\\setlength{\droptitle}{-4\baselineskip}<CR>
+\\pretitle{\begin{center}\huge\bfseries}<CR>
+\\posttitle{\end{center}}<CR>
+\\renewcommand\thesection{\Roman{section}}<CR>
+\\renewcommand\thesubsection{\arabic{subsection}}<CR>
+\\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}<CR>
+\\titleformat{\subsection}[block]{\large}{\thesubsection.}{1em}{}<CR>
+\\author{\textsc{Jindřich Dušek}\\ GJK}<CR>
+\\title{<++>}<CR>
+\\date{\today}<CR>
+\\begin{document}\maketitle\thispagestyle{empty}<CR>
+\<CR>
+\\end{document}
 
 
-:inoremap \zapis \documentclass[10pt,a4paper]{article}<CR>\usepackage[utf8]{inputenc}<CR>\usepackage[czech]{babel}<CR>\usepackage[T1]{fontenc}<CR>\usepackage{amsmath}<CR>\usepackage{amsfonts}<CR>\usepackage{amssymb}<CR>\usepackage{amsthm}<CR>\usepackage{graphicx}\usepackage{lmodern}<CR>\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}<CR>\usepackage{lettrine}<CR>\usepackage{titlesec}<CR>\usepackage{fkssugar}<CR><CR>\usepackage{titling}<CR>\setlength{\droptitle}{-4\baselineskip}<CR>\pretitle{\begin{center}\huge\bfseries}<CR>\posttitle{\end{center}}<CR>\renewcommand\thesection{\Roman{section}}<CR>\renewcommand\thesubsection{\arabic{subsection}}<CR>\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}<CR>\titleformat{\subsection}[block]{\bfseries \large}{\thesubsection.}{1em}{}<CR><CR>\usepackage{fancyhdr}<CR>\pagestyle{fancy}<CR><CR>%----------------------------------------------------------------<CR>%INFO O DOKUMENT<CR>\fancyhead[L]{<+Prilezitost+>}<CR>\fancyhead[C]{\textbf{<+Tema+>}}<CR>\fancyhead[R]{\textsc{Jindřich Dušek}, <+Instituce+>}<CR>%----------------------------------------------------------------<CR>%VLASTNÍ MAKRA<CR>\newtheorem{dlzt}{Důležité:}<CR>\newtheorem{defi}{Definice:}<CR>\begin{document}<CR><++><CR>\end{document}<esc>gg
+:inoremap \zapis 
+\\documentclass[10pt,a4paper]{article}<CR>
+\\usepackage[utf8]{inputenc}<CR>
+\\usepackage[czech]{babel}<CR>
+\\usepackage[T1]{fontenc}<CR>
+\\usepackage{amsmath}<CR>
+\\usepackage{amsfonts}<CR>
+\\usepackage{amssymb}<CR>
+\\usepackage{amsthm}<CR>
+\\usepackage{graphicx}
+\\usepackage{lmodern}<CR>
+\\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}<CR>
+\\usepackage{lettrine}<CR>
+\\usepackage{titlesec}<CR>
+\\usepackage{fkssugar}<CR>
+\<CR>
+\\usepackage{titling}<CR>
+\\setlength{\droptitle}{-4\baselineskip}<CR>
+\\pretitle{\begin{center}\huge\bfseries}<CR>
+\\posttitle{\end{center}}<CR>
+\\renewcommand\thesection{\Roman{section}}<CR>
+\\\renewcommand\thesubsection{\arabic{subsection}}<CR>
+\\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}<CR>
+\\titleformat{\subsection}[block]{\bfseries \large}{\thesubsection.}{1em}{}<CR>
+\<CR>
+\\usepackage{fancyhdr}<CR>
+\\pagestyle{fancy}<CR>
+\<CR>
+\%----------------------------------------------------------------<CR>
+\%INFO O DOKUMENT<CR>
+\\fancyhead[L]{<+Prilezitost+>}<CR>
+\\fancyhead[C]{\textbf{<+Tema+>}}<CR>
+\\fancyhead[R]{\textsc{Jindřich Dušek}, <+Instituce+>}<CR>
+\%----------------------------------------------------------------<CR>
+\%VLASTNÍ MAKRA<CR>
+\\newtheorem{dlzt}{Důležité:}<CR>
+\\newtheorem{defi}{Definice:}<CR>
+\\begin{document}<CR>
+\<++><CR>
+\\end{document}<esc>gg
+
 
 
 
