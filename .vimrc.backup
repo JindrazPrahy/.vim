@@ -1,10 +1,112 @@
+"This .vimrc has stuff I randomly found on the Internet and especially from Ben
+"Orenstein and Damian Conway
+
 "Pathogen plugin manager
 execute pathogen#infect()
 
+"==================== Generally sensible things ===================
+:set nocompatible
 "Filetype detection
 :filetype plugin indent on
 :syntax on
 
-"A fix for .tex files
+"A workaround for filetype detection of empty .tex files
 :let g:tex_flavor = "latex"
 :let g:Tex_DefaultTargetFormat = 'pdf'
+
+"Good for moving around in long lines
+nmap k gk
+nmap j gj
+
+"For editing multiple files in one window
+:set hidden
+:set laststatus=2
+
+"Auto-completion of vim commands
+:set wildmenu
+:set wildmode=longest:full,full
+
+"Show commands you press
+:set showcmd
+
+"Show matching parenthesis when there is a cursor over one of them
+:set showmatch
+
+"Disable display redrawing when not needed (sometimes makes things faster)
+:set lazyredraw
+
+"Allow backspacing over autoindent, line breaks and start of insert action
+:set backspace=indent,eol,start
+
+"==================== My preferences =================
+"Setting up colorscheme
+:colorscheme ron
+
+"Leader assignment
+:let mapleader = ","
+
+"When moving up and down you don't jump to the start of line
+:set nostartofline
+
+"Switch between paste and nopaste with F9
+:set pastetoggle=<F9>
+
+"Set relative line numbering
+:set number relativenumber
+
+"Display extra whitespace
+set list listchars=tab:»·,trail:·
+
+" Make it more obvious which parenthesis I'm on
+hi MatchParen cterm=none ctermbg=red ctermfg=yellow
+
+"Find and replace shortcut
+:nnoremap M :%s//g<LEFT><LEFT>
+":nmap m :%s/<C-R><C-W>//g<LEFT><LEFT>
+
+"Highlights too long lines
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+
+"==================== Added functionalities ===============
+"Rename current file with <leader>ren (by Gary Bernhardt I think)
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'), 'file')
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <Leader>ren :call RenameFile()<cr>
+
+"A function that quits and reenters a file
+function! RestartFile()
+	:tabe k
+	normal! gT
+	:let @# = @%
+	:q!
+	:tabe #
+	normal! gT
+	:q!
+endfunction
+map <Leader>res :call RestartFile()<CR>
+
+"==================== Spell-checker ========================
+"I am using my spell checker to highlight words which are wrong
+"stylistically. For this I have created a special dictionary with
+"just the wrong words and highlight them.
+
+
+"Setting up my wordlist
+:set spell spelllang=cz-ugly 
+
+"Disabling highlight for unrecognized words (all words would be highlighted 
+"as I do not use other dictionaries
+:augroup disablehighlight
+:autocmd!
+:autocmd BufRead * :hi clear SpellBad
+:augroup END
+
