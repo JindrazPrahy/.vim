@@ -4,6 +4,31 @@ imap <buffer> ° <Plug>Tex_InsertItemOnThisLine
 "Technikálie
 syntax on
 
+:inoremap <silent> <c-j> <esc>/<++><cr>gns
+
+"A Function to quickly create \begin and \end constructions (using stuff from
+"my .vimrc)
+:function! MakeEnv(...)
+:let dicccionary={
+\ '3' : 'itemize',
+\ '4' : 'align*'
+\ }
+if a:0>=1
+:call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
+else
+let name=GetLineInput('Enter environment name:')
+for [key, val] in items(dicccionary)
+if name == key
+:let name = val
+:echo name
+break
+endif
+endfor
+:call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',name)
+endif
+:endfunction
+:inoremap <buffer> <F2> <esc>:call MakeEnv()<CR>O
+
 "Česká jazyková makra 
 :inoremap zr<space><space> zrychlení
 :inoremap ry<space><space> rychlost
@@ -27,10 +52,10 @@ syntax on
 :inoremap frac \frac{}{<+2+>}<++><esc>11hi
 
 "Compilation
-:nnoremap <Leader>fvl :!fks-vlnka.sh % <CR>
-:nnoremap <Leader>vl :!vlna % <CR>
 :nnoremap <Leader>xl :!xelatex % <CR><CR>
 :nnoremap <Leader>kl :!pdflatex -interaction=nonstopmode % 
+:nnoremap <Leader>ll :!pdflatex % <CR>
+:nnoremap <Leader>lv :!evince %:r.pdf & <CR><space>
 "A Programme for automatic insertion of ~s
 :nnoremap <Leader>vl :!fks-vlnka.sh % <cr> :e<cr>
 
