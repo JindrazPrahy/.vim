@@ -4,11 +4,14 @@ imap <buffer> ° <Plug>Tex_InsertItemOnThisLine
 "Technikálie
 syntax on
 
-:inoremap <silent> <c-j> <esc>/<++><cr>gns
+"Jumper
+:inoremap <C-j> <esc>/<++><cr>gns
+:nnoremap <C-j> <esc>/<++><cr>gns
 
 "A Function to quickly create \begin and \end constructions (using stuff from
 "my .vimrc)
 :function! MakeEnv(...)
+"A list of shortcuts
 :let dicccionary={
 \ '3' : 'itemize',
 \ '4' : 'align*'
@@ -26,6 +29,7 @@ endif
 endfor
 :call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',name)
 endif
+normal kkddj
 :endfunction
 :inoremap <buffer> <F2> <esc>:call MakeEnv()<CR>O
 
@@ -49,13 +53,28 @@ endif
 :inoremap \sss<CR> \subsubsection{}<++><esc>4hi
 :inoremap \e<CR> \begin{equation*}<CR>\begin{split}<CR><CR>\end{split}<CR>\end{equation*}<++><esc>kki
 :inoremap \ni \noindent
-:inoremap frac \frac{}{<+2+>}<++><esc>11hi
+:inoremap frac \frac{}{<++>}<++><esc>10hi
+:inoremap )) \left( \right)<esc>6hi
+
+
+
+":inoremap 0 0<esc>hi<cr><esc>lli<cr><esc>k:silent! s/\a/&_<cr>0i<backspace><esc>A<del>
+":inoremap 0 0<esc>hma"d2xo<esc>"dp:silent! s/\a/&_<cr>$v0"dx`a"dpjdd`alli
+:inoremap fx f(x)
+:inoremap fx0 f(x_0)
+:inoremap gx g(x)
+:inoremap gx0 g(x_0)
+:inoremap pi2 \frac{\pi}{2}
+
 
 "Compilation
 :nnoremap <Leader>xl :!xelatex % <CR><CR>
 :nnoremap <Leader>kl :!pdflatex -interaction=nonstopmode % 
 :nnoremap <Leader>ll :!pdflatex % <CR>
-:nnoremap <Leader>lv :!evince %:r.pdf & <CR><space>
+:nnoremap <Leader>bt :!bibtex %:r <CR>
+:nnoremap <Leader>lv :!evince %:r.pdf &>/dev/null &<CR><space>
+"Word count
+:nnoremap <Leader>w :!pdftotext %:r.pdf - \| tr -d '.' \| wc -w <CR>
 "A Programme for automatic insertion of ~s
 :nnoremap <Leader>vl :!fks-vlnka.sh % <cr> :e<cr>
 

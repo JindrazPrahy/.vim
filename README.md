@@ -1,47 +1,49 @@
 A .vim setup (by Jindřich Dušek)
 ===============================================
 
-This is a .vim directory configured for using vim with LaTeX, Python, C, and Metapost. You can download it and use it to give your vim extra functionality that will hopefully help you to save time while writing. More features are being added periodically.
+This is a .vim directory configured for using vim with LaTeX, Python, C, and
+Metapost. You can download it and use it to give your vim extra functionality
+that will hopefully help you to save time while writing anything but especially
+stuf in LaTeX. More features are being added periodically.
 
-Should you feel there is a room for improvement in my .vim do not hesitate to contact me (jd@mamlasinky.com) and hopefully your issue will be addressed.
+Should you feel there is a room for improvement in my .vim do not hesitate to
+contact me (jd@mamlasinky.com) and hopefully your issue will be addressed.
 
 Installation
 ---------------------
 
-The installation is fairly straightforward. Ensure that you have 
+The installation is fairly straightforward. Ensure that you have
 
-- git 
+- git
 - and vim.
 
-Is recommended that you update your vim and that you 
-ensure that you have a full version of vim installed on you device 
-(on some devices vim-tiny is installed instead of the full version 
-of vim). This 
-is usually done by typing the following line into your terminal: 
+Is recommended that you update your vim and that you ensure that you have a
+full version of vim installed on you device (on some devices vim-tiny is
+installed instead of the full version of vim). This is usually done by typing
+the following line into your terminal:
 
 sudo apt-get install vim -y
 
-Next run the following to also get a copy of a .vimrc file which 
-is required to make this setup work:
+Next run the following to also get a copy of a .vimrc file which is required to
+make this setup work:
 
 ```
 cd ~ && git clone https://github.com/JindrazPrahy/.vim.git && cp ~/.vim/.vimrc.backup ~/.vimrc
 ```
 
 
-Documentation 
+Documentation
 ---------------------
 
-Firstly I will cover general rules of using this .vim setup 
-and then I will cover the individual macros that vim loads for specific 
-file extensions.
+Firstly I will cover general rules of using this .vim setup and then I will
+cover the individual macros that vim loads for specific file extensions.
 
 Generally
 --------
 
-I use [pathogen](https://github.com/tpope/vim-pathogen) to install new 
+I use [pathogen](https://github.com/tpope/vim-pathogen) to install new
 plugins which are all located in the bundle subdirectory of .vim.
-Furthermore, I use ftplugin to make vim behave differently in different 
+Furthermore, I use ftplugin to make vim behave differently in different
 files according to their extension.
 
 Feel free to download new plugins to your taste!
