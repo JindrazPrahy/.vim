@@ -1,3 +1,11 @@
+"Features
+:let g:EnableCzechWordCheck= 1
+:let  g:EnableCalculator= 1
+:so ~/.vim/jindra/features.vim
+
+"Latex Templates
+:nnoremap <leader>sta :so ~/.vim/jindra/latextemplates.vim <CR> :e<CR>
+
 "Ohledně Latex suite
 imap <buffer> ° <Plug>Tex_InsertItemOnThisLine
 

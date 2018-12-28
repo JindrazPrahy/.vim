@@ -9,7 +9,8 @@
 "	2. \article
 
 "Most vanilla filestart
-:	autocmd BufRead *.tex    :inoremap \newfile 
+":	autocmd BufRead *.tex    :inoremap \newfile 
+:inoremap \newfile 
 \\documentclass[10pt,a4paper]{article}<CR>
 \\usepackage[utf8]{inputenc}<CR>
 \\usepackage[czech]{babel}<CR>
@@ -23,7 +24,8 @@
 \\end{document}<esc>ki
 
 "Basic article
-:	autocmd BufRead *.tex    :inoremap \article 
+":	autocmd BufRead *.tex    :inoremap \article 
+:inoremap \article 
 \\documentclass[10pt,a4paper]{article}<CR>
 \\usepackage[utf8]{inputenc}<CR>
 \\usepackage[czech]{babel}<CR>
@@ -55,7 +57,8 @@
 \\end{document}
 
 "Fykos solution file start
-:	autocmd BufRead *.tex :inoremap \fks 
+":	autocmd BufRead *.tex :inoremap \fks 
+:inoremap \fks 
 \\documentclass{fkssolpub}<CR>
 \\usepackage[utf8]{inputenc}<CR>
 \\usepackage[T1]{fontenc}<CR>
@@ -71,8 +74,51 @@
 \\end{problem}<CR>
 \\end{document}<esc>5ki
 
+"For taking notes
+:inoremap \zapis 
+\\documentclass[10pt,a4paper]{article}<CR>
+\\usepackage[utf8]{inputenc}<CR>
+\\usepackage[czech]{babel}<CR>
+\\usepackage[T1]{fontenc}<CR>
+\\usepackage{amsmath}<CR>
+\\usepackage{amsfonts}<CR>
+\\usepackage{amssymb}<CR>
+\\usepackage{amsthm}<CR>
+\\usepackage{graphicx}
+\\usepackage{lmodern}<CR>
+\\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}<CR>
+\\usepackage{lettrine}<CR>
+\\usepackage{titlesec}<CR>
+\\usepackage{fkssugar}<CR>
+\<CR>
+\\usepackage{titling}<CR>
+\\setlength{\droptitle}{-4\baselineskip}<CR>
+\\pretitle{\begin{center}\huge\bfseries}<CR>
+\\posttitle{\end{center}}<CR>
+\\renewcommand\thesection{\Roman{section}}<CR>
+\\renewcommand\thesubsection{\arabic{subsection}}<CR>
+\\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}<CR>
+\\titleformat{\subsection}[block]{\bfseries \large}{\thesubsection.}{1em}{}<CR>
+\<CR>
+\\usepackage{fancyhdr}<CR>
+\\pagestyle{fancy}<CR>
+\<CR>
+\%----------------------------------------------------------------<CR>
+\%INFO O DOKUMENT<CR>
+\\fancyhead[L]{<+Prilezitost+>}<CR>
+\\fancyhead[C]{\textbf{<+Tema+>}}<CR>
+\\fancyhead[R]{\textsc{Jindřich Dušek}, <+Instituce+>}<CR>
+\%----------------------------------------------------------------<CR>
+\%VLASTNÍ MAKRA<CR>
+\\newtheorem{dlzt}{Důležité:}<CR>
+\\newtheorem{defi}{Definice:}<CR>
+\\begin{document}<CR>
+\<++><CR>
+\\end{document}<esc>gg
+
+
 "Memoir file start
-:	autocmd BufRead *.tex :inoremap \memoir 
+:inoremap \memoir 
 \\documentclass[openright,14pt]{memoir}<CR>
 \\usepackage[utf8]{inputenc}<CR>
 \\usepackage[T1]{fontenc}<CR>
@@ -152,47 +198,6 @@
 \\end{document}<esc>ggi
 
 
-"For taking notes
-:	autocmd BufRead *.tex    :inoremap \zapis 
-\\documentclass[10pt,a4paper]{article}<CR>
-\\usepackage[utf8]{inputenc}<CR>
-\\usepackage[czech]{babel}<CR>
-\\usepackage[T1]{fontenc}<CR>
-\\usepackage{amsmath}<CR>
-\\usepackage{amsfonts}<CR>
-\\usepackage{amssymb}<CR>
-\\usepackage{amsthm}<CR>
-\\usepackage{graphicx}
-\\usepackage{lmodern}<CR>
-\\usepackage[top = 2cm, bottom = 2cm, left = 2cm, right = 2cm]{geometry}<CR>
-\\usepackage{lettrine}<CR>
-\\usepackage{titlesec}<CR>
-\\usepackage{fkssugar}<CR>
-\<CR>
-\\usepackage{titling}<CR>
-\\setlength{\droptitle}{-4\baselineskip}<CR>
-\\pretitle{\begin{center}\huge\bfseries}<CR>
-\\posttitle{\end{center}}<CR>
-\\renewcommand\thesection{\Roman{section}}<CR>
-\\renewcommand\thesubsection{\arabic{subsection}}<CR>
-\\titleformat{\section}[block]{\large\scshape\centering}{\thesection.}{1em}{}<CR>
-\\titleformat{\subsection}[block]{\bfseries \large}{\thesubsection.}{1em}{}<CR>
-\<CR>
-\\usepackage{fancyhdr}<CR>
-\\pagestyle{fancy}<CR>
-\<CR>
-\%----------------------------------------------------------------<CR>
-\%INFO O DOKUMENT<CR>
-\\fancyhead[L]{<+Prilezitost+>}<CR>
-\\fancyhead[C]{\textbf{<+Tema+>}}<CR>
-\\fancyhead[R]{\textsc{Jindřich Dušek}, <+Instituce+>}<CR>
-\%----------------------------------------------------------------<CR>
-\%VLASTNÍ MAKRA<CR>
-\\newtheorem{dlzt}{Důležité:}<CR>
-\\newtheorem{defi}{Definice:}<CR>
-\\begin{document}<CR>
-\<++><CR>
-\\end{document}<esc>gg
 
 
 :augroup END
