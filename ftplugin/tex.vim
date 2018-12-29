@@ -13,8 +13,8 @@ imap <buffer> ° <Plug>Tex_InsertItemOnThisLine
 syntax on
 
 "Jumper
-:inoremap <C-j> <esc>/<++><cr>gns
-:nnoremap <C-j> <esc>/<++><cr>gns
+:inoremap <C-j> <esc>/<++><Enter>"_c4l
+:nnoremap <C-j> <esc>/<++><Enter>"_c4l
 
 "A Function to quickly create \begin and \end constructions (using stuff from
 "my .vimrc)

@@ -16,7 +16,7 @@
 "highlighted as I do not use other dictionaries)
 :augroup disablehighlight
 :autocmd!
-:autocmd BufRead * :hi clear SpellBad
+:autocmd VimEnter * :hi clear SpellBad
 :augroup END
 
 :endif
