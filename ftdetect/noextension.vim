@@ -1,2 +1,5 @@
-au BufRead,BufNewFile * if expand('<afile>:e') == '' | set ft=noextension | end
+:augroup noextension
+:	autocmd!
+:	autocmd BufNewFile,BufRead * if expand('%:t') !~ '\.' | set syntax=noextension | endif
+:augroup END
 
