@@ -2,21 +2,36 @@
 "Orenstein and Damian Conway
 
 "Pathogen plugin manager
-execute pathogen#infect()
+:execute pathogen#infect()
+
+"==================== Optional features ================
+"In ftdetect I can set whether I want to use certain features by setting
+"variables that turn them on to equal 1. If no option is specified, the
+"defaults below will be used.
+"The individual features are implemented in ../plugin/after.
+
+
+"A calculator ran from command mode. It uses the programme "bc"
+"To start call the function Bc or press ?? in normal mode
+:if !exists("g:EnableCalculator")
+:	let  g:EnableCalculator= 1
+:endif
+
+"Czech stylistic word checker
+:if !exists("g:EnableCzechWordCheck")
+:	let g:EnableCzechWordCheck = 0
+:endif
+
 
 "==================== Generally sensible things ===================
 :set nocompatible
 "Filetype detection
-:filetype plugin indent on
+:filetype plugin on
 :syntax on
 
-"A workaround for filetype detection of empty .tex files
-:let g:tex_flavor = "latex"
-:let g:Tex_DefaultTargetFormat = 'pdf'
-
 "Good for moving around in long lines
-nmap k gk
-nmap j gj
+:nmap k gk
+:nmap j gj
 
 "For editing multiple files in one window
 :set hidden
@@ -38,7 +53,17 @@ nmap j gj
 "Allow backspacing over autoindent, line breaks and start of insert action
 :set backspace=indent,eol,start
 
-"==================== My preferences =================
+"Disable beeping
+:set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=
+
+"A workaround for filetype detection of empty .tex files
+:let g:tex_flavor = "latex"
+:let g:Tex_DefaultTargetFormat = 'pdf'
+
+
+
+"==================== My preferred settings =================
 "Setting up colorscheme
 :colorscheme ron
 
@@ -54,8 +79,11 @@ nmap j gj
 "Set relative line numbering
 :set number relativenumber
 
-"Display extra whitespace
-set list listchars=tab:»·,trail:·
+"Display extra whitespace & make tabs look better
+:set list listchars=tab:\|\-,trail:·
+"»
+"Tabs preferences
+":set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
 
 " Make it more obvious which parenthesis I'm on
 hi MatchParen cterm=none ctermbg=red ctermfg=yellow
@@ -68,8 +96,21 @@ hi MatchParen cterm=none ctermbg=red ctermfg=yellow
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
+"NO autoindent
+:setl noai nocin nosi inde=
+:set noautoindent
 
-"==================== Added functionalities ===============
+"Window splits
+:set splitbelow splitright
+
+"Since I use a Czech keyboard, this is reasonable
+:noremap ů :
+
+" I dislike search highlighting
+:set nohlsearch
+
+"==================== Features suitable for any file ======================
+
 "Rename current file with <leader>ren (by Gary Bernhardt I think)
 function! RenameFile()
   let old_name = expand('%')
@@ -83,7 +124,7 @@ endfunction
 map <Leader>ren :call RenameFile()<cr>
 
 "A function that quits and reenters a file
-function! RestartFile()
+:function! RestartFile()
 	:tabe k
 	normal! gT
 	:let @# = @%
@@ -91,22 +132,65 @@ function! RestartFile()
 	:tabe #
 	normal! gT
 	:q!
-endfunction
-map <Leader>res :call RestartFile()<CR>
-
-"==================== Spell-checker ========================
-"I am using my spell checker to highlight words which are wrong
-"stylistically. For this I have created a special dictionary with
-"just the wrong words and highlight them.
+:endfunction
+:map <Leader>res :call RestartFile()<CR>
 
 
-"Setting up my wordlist
-:set spell spelllang=cz-ugly 
 
-"Disabling highlight for unrecognized words (all words would be highlighted 
-"as I do not use other dictionaries
-:augroup disablehighlight
-:autocmd!
-:autocmd BufRead * :hi clear SpellBad
-:augroup END
+"==================== Functions required for other features ===============
+"A function to get input from the user
+"Required in tex.vim
+:fun! GetLineInput(phrase)
+	let name = ''
+	let line = getline('.')
+	call inputsave()
+	let name = input(a:phrase)
+	call inputrestore()
+	return name
+:endfun
 
+"A function to insert html like tags fast
+"Required it tex.vim
+:fun! DuplicateAndSurround(phrase,prefix_first,suffix_first,prefix_second,suffix_second,...)
+:let name = ''
+:if a:0==0
+	:let name=GetLineInput(a:phrase)
+:else
+	:let name=get(a:,1,0)
+:endif
+:let lineone=a:prefix_first .name.a:suffix_first
+:let linetwo=a:prefix_second.name.a:suffix_second
+:put =lineone
+:put =linetwo
+:endfun
+
+"A functions which echoes the output of a bash command
+"Required in plugin/after/features.vim by Calculator
+:fun! WriteBashCommandOutput(command)
+:	echo system(a:command, getreg('"', 1, 1))
+:endfun
+
+
+
+
+
+"=================== Custom =================================
+"Soubor s templaty na latex
+":nnoremap <leader>sta :so ~/.vim/jindra/latextemplates.vim <CR> :e<CR>
+
+
+"TODO -- borland colour scheme
+
+
+
+
+
+
+"=================== Temp ===================================
+"Custom
+:nnoremap \ww :%s/centering/predtitle\\centering/g <cr> :set paste<cr> :%s/normalsize/large/g <cr>  :%s/minipage/varwidth/g<cr> 
+	\ /\\end{varwidth}<cr>cgn\end{varwidth}\mezisloupci<esc>gg
+"\ :call feedkeys("yq") | %s/\\end{varwidth}/\\end{varwidth}\\mezisloupci/gc <cr>
+
+":nnoremap ů d%i\z<space><esc>
+:nnoremap ě nhhd%i\z<space><esc>
