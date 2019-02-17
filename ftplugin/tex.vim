@@ -21,8 +21,9 @@ syntax on
 :function! MakeEnv(...)
 "A list of shortcuts
 :let dicccionary={
-\ '3' : 'itemize',
-\ '4' : 'align*'
+\ 'i' : 'itemize',
+\ 'a' : 'align*',
+\ 'm' : 'align*'
 \ }
 if a:0>=1
 :call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
@@ -62,7 +63,7 @@ normal kkddj
 :inoremap \e<CR> \begin{equation*}<CR>\begin{split}<CR><CR>\end{split}<CR>\end{equation*}<++><esc>kki
 :inoremap \ni \noindent
 :inoremap frac \frac{}{<++>}<++><esc>10hi
-:inoremap )) \left( \right)<esc>6hi
+:inoremap ,)) \left( \right)<esc>6hi
 
 
 
@@ -80,7 +81,8 @@ normal kkddj
 :nnoremap <Leader>kl :!pdflatex -interaction=nonstopmode % 
 :nnoremap <Leader>ll :!pdflatex % <CR>
 :nnoremap <Leader>bt :!bibtex %:r <CR>
-:nnoremap <Leader>lv :!evince %:r.pdf &>/dev/null &<CR><space>
+:nnoremap <Leader>lv :!xdg-open %:r.pdf &>/dev/null &<CR><space>
+:nnoremap <Leader>ev :!evince %:r.pdf &>/dev/null &<CR><space>
 "Word count
 :nnoremap <Leader>w :!pdftotext %:r.pdf - \| tr -d '.' \| wc -w <CR>
 "A Programme for automatic insertion of ~s

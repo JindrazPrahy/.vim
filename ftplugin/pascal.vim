@@ -9,4 +9,9 @@
 
 "Tab preferences
 :set tabstop=4 softtabstop=4 shiftwidth=4 noexpandtab
+:set autoindent
 
+
+
+"Shortcuts
+:inoremap begin begin<cr>end;<esc>O
