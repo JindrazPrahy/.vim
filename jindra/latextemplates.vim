@@ -105,9 +105,9 @@
 \<CR>
 \%----------------------------------------------------------------<CR>
 \%INFO O DOKUMENT<CR>
-\\fancyhead[L]{<+Prilezitost+>}<CR>
-\\fancyhead[C]{\textbf{<+Tema+>}}<CR>
-\\fancyhead[R]{\textsc{Jindřich Dušek}, <+Instituce+>}<CR>
+\\fancyhead[L]{<++>}<CR>
+\\fancyhead[C]{\textbf{<++>}}<CR>
+\\fancyhead[R]{\textsc{Jindřich Dušek}, <++>}<CR>
 \%----------------------------------------------------------------<CR>
 \%VLASTNÍ MAKRA<CR>
 \\newtheorem{dlzt}{Důležité:}<CR>

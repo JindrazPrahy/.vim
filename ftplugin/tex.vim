@@ -3,6 +3,14 @@
 :let  g:EnableCalculator= 1
 :so ~/.vim/jindra/features.vim
 
+"Conceal
+:set conceallevel=2
+":set concealcursor=ni
+:let g:tex_conceal="abdgm"
+
+
+
+
 "Latex Templates
 :nnoremap <leader>sta :so ~/.vim/jindra/latextemplates.vim <CR> :e<CR>
 
@@ -23,7 +31,8 @@ syntax on
 :let dicccionary={
 \ 'i' : 'itemize',
 \ 'a' : 'align*',
-\ 'm' : 'align*'
+\ 'm' : 'align',
+\ 'e' : 'enumerate'
 \ }
 if a:0>=1
 :call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
@@ -42,6 +51,9 @@ normal kkddj
 :endfunction
 :inoremap <buffer> <F2> <esc>:call MakeEnv()<CR>O
 
+"Itemize
+:inoremap `` \item
+
 "Česká jazyková makra 
 :inoremap zr<space><space> zrychlení
 :inoremap ry<space><space> rychlost
@@ -51,7 +63,8 @@ normal kkddj
 "Fyzikální makra
 :inoremap \eu \mathrm{e}
 :inoremap \cc \mathrm{c}
-:inoremap \G \mathrm{G}
+:inoremap \hh \mathrm{h}
+:inoremap \GG \mathrm{G}
 :inoremap \ii \mathrm{i}
 :inoremap \jj \mathrm{j}
 
