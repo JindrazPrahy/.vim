@@ -74,13 +74,17 @@ normal kkddj
 
 "Latex příkazy
 :inoremap \geometry \usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
-:inoremap \s<CR> \section{}<++><esc>4hi
-:inoremap \ss<CR> \subsection{}<++><esc>4hi
-:inoremap \sss<CR> \subsubsection{}<++><esc>4hi
+:inoremap \s<CR> \section{}<cr><++><esc>kela
+:inoremap \ss<CR> \subsection{}<cr><++><esc>kela
+:inoremap \sss<CR> \subsubsection{}<cr><++><esc>kela
 :inoremap \e<CR> \begin{equation*}<CR>\begin{split}<CR><CR>\end{split}<CR>\end{equation*}<++><esc>kki
 :inoremap \ni \noindent
-:inoremap frac \frac{}{<++>}<++><esc>10hi
+:inoremap frc \frac{}{<++>}<++><esc>10hi
 :inoremap ,)) \left( \right)<esc>6hi
+:nnoremap vv diwi\vect{<esc>pa}<esc>
+:nnoremap HH diwi\hat{<esc>pa}<esc>
+:nnoremap ,o diwi\overline{<esc>pa}<esc>
+
 
 
 
