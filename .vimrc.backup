@@ -1,5 +1,7 @@
 "This .vimrc has stuff I randomly found on the Internet and especially from Ben
 "Orenstein and Damian Conway
+set encoding=utf-8
+scriptencoding utf-8
 
 "Pathogen plugin manager
 :execute pathogen#infect()
