@@ -1,2 +1,6 @@
 "Setting the filetype of a Lazarus project file to .p
-au BufRead,BufNewFile *.cpp set filetype=cpp
+
+:augroup cpp
+:	autocmd!
+:	au BufRead,BufNewFile *.cpp set filetype=cpp
+:augroup END
