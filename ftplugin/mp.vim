@@ -1,6 +1,6 @@
 "Compilation
 :nnoremap <leader>ll :!mptopdf % <CR><CR>
-:nnoremap <leader>lv :!xdg-open 
+:nnoremap <leader>lv :!inkview 
 
 "A macro for function plotting
 :inoremap \axes 

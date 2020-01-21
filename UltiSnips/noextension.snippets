@@ -1,0 +1,24 @@
+#Box
+snippet box "Box"
+`!p snip.rv = '┌' + '─' * (len(t[1]) + 2) + '┐'`
+│ $1 │
+`!p snip.rv = '└' + '─' * (len(t[1]) + 2) + '┘'`
+$0
+endsnippet
+
+#Box type two
+snippet box* "Box*"
+`!p snip.rv = '*' + '*' * (len(t[1]) + 2) + '*'`
+* $1 *
+`!p snip.rv = '*' + '*' * (len(t[1]) + 2) + '*'`
+$0
+endsnippet
+
+#Underline
+snippet ulin "Box*"
+$1
+`!p snip.rv ='─' * (len(t[1])) `
+$0
+endsnippet
+
+

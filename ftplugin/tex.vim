@@ -14,7 +14,6 @@
 
 
 
-
 "Latex Templates
 :nnoremap <leader>sta :so ~/.vim/jindra/latextemplates.vim <CR> :e<CR>
 
@@ -28,41 +27,8 @@ syntax on
 :inoremap <C-j> <esc>/<++><Enter>"_c4l
 :nnoremap <C-j> <esc>/<++><Enter>"_c4l
 
-"A Function to quickly create \begin and \end constructions (using stuff from
-"my .vimrc)
-:function! MakeEnv(...)
-"A list of shortcuts
-:let dicccionary={
-\ 'i' : 'itemize',
-\ 'a' : 'align*',
-\ 'm' : 'align',
-\ 'e' : 'enumerate'
-\ }
-if a:0>=1
-:call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
-else
-let name=GetLineInput('Enter environment name:')
-for [key, val] in items(dicccionary)
-if name == key
-:let name = val
-:echo name
-break
-endif
-endfor
-:call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',name)
-endif
-normal kkddj
-:endfunction
-:inoremap <buffer> <F2> <esc>:call MakeEnv()<CR>O
-
 "Itemize
 :inoremap `` \item
-
-"Česká jazyková makra 
-:inoremap zr<space><space> zrychlení
-:inoremap ry<space><space> rychlost
-:inoremap pe<space><space> period
-:inoremap pů<space><space> působ
 
 "Fyzikální makra
 :inoremap \eu \mathrm{e}
@@ -71,6 +37,15 @@ normal kkddj
 :inoremap \GG \mathrm{G}
 :inoremap \ii \mathrm{i}
 :inoremap \jj \mathrm{j}
+
+"Matematická makra
+:inoremap <Leader>s \sin
+:inoremap <Leader>c \cos
+:inoremap fx f(x)
+:inoremap fx0 f(x_0)
+:inoremap gx g(x)
+:inoremap gx0 g(x_0)
+:inoremap pi2 \frac{\pi}{2}
 
 "Latex příkazy
 :inoremap \geometry \usepackage[top=2cm,bottom=2cm,left=2cm,right=2cm]{geometry}
@@ -87,18 +62,26 @@ normal kkddj
 
 
 
+:inoremap <leader>G 
+\\begin{Graf}[h]<cr>
+\\centering<cr>
+\\includegraphics[width=10cm]{<cr>
+\\end{Graf}<esc>kA
+:inoremap <leader>F \begin{figure}[h]<cr>
+\\centering<cr>
+\\includegraphics[width=10cm]{<cr>
+\\end{figure}<esc>kA
 
-":inoremap 0 0<esc>hi<cr><esc>lli<cr><esc>k:silent! s/\a/&_<cr>0i<backspace><esc>A<del>
-":inoremap 0 0<esc>hma"d2xo<esc>"dp:silent! s/\a/&_<cr>$v0"dx`a"dpjdd`alli
-:inoremap fx f(x)
-:inoremap fx0 f(x_0)
-:inoremap gx g(x)
-:inoremap gx0 g(x_0)
-:inoremap pi2 \frac{\pi}{2}
+
+
+
+
+
 
 
 "Compilation
 :nnoremap <Leader>xl :!xelatex % <CR><CR>
+:nnoremap <Leader>ůl :!lualatex % <CR><CR>
 :nnoremap <Leader>kl :!pdflatex -interaction=nonstopmode % 
 :nnoremap <Leader>ll :!pdflatex % <CR>
 :nnoremap <Leader>bt :!bibtex %:r <CR>
@@ -158,4 +141,38 @@ normal kkddj
 :inoremap `Ps \Psi
 :inoremap `O \Omega
 :inoremap `L \Lambda
+
+
+
+"Old code
+
+
+""A Function to quickly create \begin and \end constructions (using stuff from
+""my .vimrc)
+":function! MakeEnv(...)
+"	"A list of shortcuts
+"	:let dicccionary={
+"	\ 'i' : 'itemize',
+"	\ 'a' : 'align*',
+"	\ 'm' : 'align',
+"	\ 'e' : 'enumerate'
+"	\ }
+"
+"	if a:0>=1
+"			:call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',get(a:,1,0))
+"	else
+"			let name=GetLineInput('Enter environment name:')
+"		for [key, val] in items(dicccionary)
+"			if name == key
+"				:let name = val
+"				:echo name
+"				break
+"			endif
+"		endfor
+"		:call DuplicateAndSurround('Enter environment name:','\begin{','}','\end{','}',name)
+"	endif
+"	normal kkddj
+":endfunction
+":inoremap <buffer> <F2> <esc>:call MakeEnv()<CR>O
+
 

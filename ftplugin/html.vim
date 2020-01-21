@@ -1,10 +1,11 @@
 :set autoindent
 
 
+:call clearmatches()
+
 :nnoremap <f5> :!xdotool search --name "Google Chrome" windowfocus --sync key Control_L+R && xdotool search --name "jin@Jin" windowfocus<cr><cr>
 :nnoremap <f4> :!xdotool search --name "Google Chrome" windowfocus --sync key Control_L+F5 && xdotool search --name "jin@Jin" windowfocus<cr><cr>
 
-:call matchdelete(100)
 
 :inoremap <h1 <h1></h1><esc>4hi
 :inoremap <h2 <h2></h2><esc>4hi

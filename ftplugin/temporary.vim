@@ -1,0 +1,2 @@
+:silent echo delete(@%)
+":Goyo

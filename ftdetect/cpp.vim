@@ -1,4 +1,3 @@
-"Setting the filetype of a Lazarus project file to .p
 
 :augroup cpp
 :	autocmd!
